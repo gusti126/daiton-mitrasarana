@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Komentar extends Model
 {
     use HasFactory;
+
+    protected $fillabale = [
+        'nama', 'email', 'blog_id', 'body'
+    ];
+
+    public function blog()
+    {
+        return $this->belongsTo('App\Models\Blog');
+    }
 }

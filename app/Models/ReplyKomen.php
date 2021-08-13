@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class ReplyKomen extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id', 'komentar_id', 'body'
+    ];
+
+    public function komentar()
+    {
+        return $this->belongsTo('App\Models\Komentar');
+    }
 }

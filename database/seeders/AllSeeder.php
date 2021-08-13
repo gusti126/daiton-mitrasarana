@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\Komentar;
 use App\Models\ReplyKomen;
@@ -53,6 +54,16 @@ class AllSeeder extends Seeder
                 'komentar_id' => $i,
                 'body' => $faker->paragraph($nbSentences = 10, $variableNbSentences = true)
 
+            ]);
+        }
+
+        for ($i = 0; $i < 4; $i++) {
+            Banner::create([
+                'title' =>
+                $faker->sentence($nbWords = 6, $variableNbWords = true),
+                'subtitle' =>
+                $faker->sentence($nbWords = 10, $variableNbWords = true),
+                'image' => 'https://lorempixel.com/400/200/sports/',
             ]);
         }
     }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BlogController extends Controller
 {
@@ -69,7 +71,19 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Alert::success('Success Title', 'Success Message');
+
+        $data = $request->all();
+        // dd($data);
+        $blog = Blog::findOrFail($id);
+        if ($request->file('thumbnail')) {
+            $img = $request->file('thumbnail')->store('assets/blog', 'public');
+            $imgUrl = url('storage/' . $img);
+            $data['thumbnail'] = $imgUrl;
+        }
+        $blog->update($data);
+        // alert()->success('Title', 'Lorem Lorem Lorem');
+        return redirect()->route('livewire-blog')->with('toast_success', 'Approved Berhasil, referal falid');
     }
 
     /**
@@ -80,6 +94,10 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Blog::findOrFail($id);
+
+        $data->delete();
+
+        return redirect()->back();
     }
 }

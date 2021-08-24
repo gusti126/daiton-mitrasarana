@@ -12,4 +12,8 @@ class Blog extends Model
     protected $fillable = [
         'user_id', 'title', 'thumbnail', 'body'
     ];
+    public function komentar()
+    {
+        return $this->hasMany('App\Models\Komentar');
+    }
 }

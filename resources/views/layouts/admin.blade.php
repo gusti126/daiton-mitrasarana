@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
 @include('includes.header')
 @livewireStyles
+@stack('script')
 
 <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
@@ -30,9 +30,10 @@
                 @include('includes.navbar')
 
                 <!-- Main content -->
-                <div class="flex  h-full p-4">
+                <div class="  h-full p-4">
                     <main>
-                        <h1 class="text-3xl font-semibold">Page content</h1>
+                        <h1 class="text-2xl font-semibold mb-4">@yield('title')</h1>
+                        @yield('content')
                     </main>
                 </div>
             </div>
@@ -579,6 +580,8 @@
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     @include('includes.script')
     @livewireScripts
+    @stack('script')
+    @include('sweetalert::alert')
 </body>
 
 </html>

@@ -17,4 +17,8 @@ class Komentar extends Model
     {
         return $this->belongsTo('App\Models\Blog');
     }
+    public function reply()
+    {
+        return $this->hasMany('App\Models\ReplyKomen');
+    }
 }

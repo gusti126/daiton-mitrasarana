@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Banner;
+use App\Models\BannerPosition;
 use App\Models\Blog;
 use App\Models\Komentar;
 use App\Models\ReplyKomen;
@@ -57,14 +58,24 @@ class AllSeeder extends Seeder
             ]);
         }
 
+        BannerPosition::create([
+            'nama' => 'header',
+        ]);
+        BannerPosition::create([
+            'nama' => 'promotion',
+        ]);
+
         for ($i = 0; $i < 4; $i++) {
-            Banner::create([
-                'title' =>
-                $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'subtitle' =>
-                $faker->sentence($nbWords = 10, $variableNbWords = true),
-                'image' => 'https://lorempixel.com/400/200/sports/',
-            ]);
+            for ($j = 1; $j < 3; $j++) {
+                Banner::create([
+                    'banner_position_id' => $j,
+                    'title' =>
+                    $faker->sentence($nbWords = 6, $variableNbWords = true),
+                    'subtitle' =>
+                    $faker->sentence($nbWords = 10, $variableNbWords = true),
+                    'image' => 'https://lorempixel.com/400/200/sports/',
+                ]);
+            }
         }
     }
 }

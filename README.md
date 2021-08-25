@@ -34,7 +34,7 @@ npm install
 php artisan migrate
 ```
 
-### if your need data faker
+### if you need data faker
 
 ```bash
 php artisan migrate:fresh --seed
@@ -49,3 +49,8 @@ php artisan serve
 ```bash
 npm run watch
 ```
+
+## on progress
+
+1. authentication
+2. frontend into dynamic data

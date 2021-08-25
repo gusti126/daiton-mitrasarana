@@ -1,27 +1,51 @@
 ## Build Setup
 
+### download
+
 ```bash
-# download
-$ git clone https://github.com/gusti126/daiton-mitrasarana.git
-$ daiton-mitrasarana
-$ cp .env.example .env
+git clone https://github.com/gusti126/daiton-mitrasarana.git
+```
 
-# install dependencies
-$ composer install
-$ npm install
+```bash
+cd daiton-mitrasarana
+```
 
-# set your database in .env & run
-$ php artisan migrate
+```bash
+cp .env.example .env
+```
 
-# if your need data faker
-$ php artisan migrate:fresh --seed
+```bash
+cp .env.example .env
+```
 
-# build launch server
-$ php artisan serve
-$ npm run watch
+### instal dependency
 
-### my instagram
-@gusti.rizkia
+```bash
+composer install
+```
 
+```bash
+npm install
+```
 
+### set your database in .env & run
+
+```bash
+php artisan migrate
+```
+
+### if your need data faker
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+### build launch server
+
+```bash
+php artisan serve
+```
+
+```bash
+npm run watch
 ```

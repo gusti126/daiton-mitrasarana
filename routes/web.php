@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\KomentarController;
+use App\Http\Controllers\FrontController;
 use App\Http\Livewire\Banner;
 use App\Http\Livewire\Blog;
 use App\Http\Livewire\BlogDetail;
@@ -24,10 +25,13 @@ Route::get('/', function () {
     return view('layouts.admin');
 });
 
+// halaman depan
+Route::get('/', [FrontController::class, 'index']);
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::get('/', Dashboard::class)->name('livewire-dashboard');
+Route::get('/dashboard', Dashboard::class)->name('livewire-dashboard');
 Route::get('blog', Blog::class)->name('livewire-blog');
 Route::get('blog/{id}', BlogDetail::class)->name('livewire-blog-detail');
 Route::get('blog/edit/{id}', EditBlog::class)->name('livewire-edit-blog');

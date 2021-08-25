@@ -5,7 +5,7 @@
     <div class="bg-white rounded-md dark:bg-darker p-4 w-full">
         <div class="mb-4 ">
             <div class="flex px-4">
-                <div class="py-1 dark:bg-dark bg-gray-100 px-2">
+                <div class="py-1 dark:bg-dark bg-gray-100 px-2 rounded-l-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:text-white text-gray-500 " fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -13,7 +13,7 @@
                     </svg>
                 </div>
                 <input type="text"
-                    class=" py-1  mr-2 border-none bg-gray-100 focus:outline-none outline-none rounded-r-xl dark:bg-dark dark:border-transparent dark:text-light"
+                    class=" py-1  mr-2 border-none bg-gray-100  rounded-r-xl dark:bg-dark dark:border-transparent dark:text-light"
                     placeholder="cari judul artikel ..." wire:model="keywordCari" />
             </div>
         </div>
@@ -46,10 +46,10 @@
                             </svg>
                         </a>
 
-                        <a href="{{ route('hapus-blog', $item->id) }}" class="border-2 border-primary p-1 rounded-lg"
+                        <a href="{{ route('hapus-blog', $item->id) }}" class="border border-primary p-1 rounded-lg"
                             onclick="return confirm('Hapus Artikel Ini ?')">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>

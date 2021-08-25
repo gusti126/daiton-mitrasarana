@@ -12,6 +12,13 @@ class Blog extends Model
     protected $fillable = [
         'user_id', 'title', 'thumbnail', 'body'
     ];
+    protected $append = ['imgUrl'];
+
+    public function getImgUrlAttribute()
+    {
+        return env('APP_URL') . 'storage/' . $this->thumbnail;
+    }
+
     public function komentar()
     {
         return $this->hasMany('App\Models\Komentar');

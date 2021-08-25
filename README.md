@@ -1,11 +1,27 @@
-## pertama clone repo
+## Build Setup
 
-## composer install
+```bash
+# download
+$ git clone https://github.com/gusti126/daiton-mitrasarana.git
+$ daiton-mitrasarana
+$ cp .env.example .env
 
-## cp .env.example .env
+# install dependencies
+$ composer install
+$ npm install
 
-## set Database
+# set your database in .env & run
+$ php artisan migrate
 
-## jalankan migrasi dan data seeder untuk kebutuhan data faker "php artisan migrate:fresh --seed"
+# if your need data faker
+$ php artisan migrate:fresh --seed
 
-## dan jalankan server "php artisan serve"
+# build launch server
+$ php artisan serve
+$ npm run watch
+
+### my instagram
+@gusti.rizkia
+
+
+```

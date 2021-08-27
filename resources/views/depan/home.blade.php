@@ -1,292 +1,307 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.depan')
+@section('content')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-    @livewireStyles
-
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
-</head>
-
-<body class="font-sans antialiased">
-    <x-jet-banner />
-
-    <div class="min-h-screen">
-        {{-- header --}}
-        <div class="bg-imgHead bg-cover bg-opacity-30 bg-black bg-blend-darken contrast-125 min-h-highHeader px-20">
-            <div class="px-8 bg-white py-2 flex justify-between">
-                <div class="">
-                    <div>
-                        <img src="{{ asset('gambar/logo.svg') }}" alt="" class="w-12">
-                    </div>
-
-                </div>
-                <div class="flex my-auto">
-                    <div>
-                        <a href="" class="bg-blue-600 text-white px-4 py-1 rounded my-auto">Home</a>
-                    </div>
-                    <a href="" class="ml-14 hover:text-blue-600 my-auto">About</a>
-                    <a href="" class="ml-14 hover:text-blue-600 my-auto">Artikel</a>
-                </div>
+    {{-- header --}}
+    <div
+        class="bg-imgHead bg-cover bg-opacity-30 bg-black bg-blend-darken contrast-125 min-h-highHeader md:px-20 px-6 pb-10">
+        <div class="md:px-8">
+            @include('includes.front.navbar')
+        </div>
+        <div>
+            <div class="text-white font-bold text-5xl text-center mt-12">DAITON <span class="text-blue-500">MITRA</span>
+                SARANA</div>
+            <div class="md:mt-12 mt-6 text-white text-center font-medium text-lg md:text-3xl">
+                Mitra sarana <span class="text-blue-500 font-semibold">terbaik di Indonesia</span> <br>
+                berdiri sejak 1994. 200+ mitra
             </div>
-            <div>
-                <div class="text-white font-bold text-5xl text-center mt-12">DAITON <span
-                        class="text-blue-500">MITRA</span> SARANA</div>
-                <div class="mt-12 text-white text-center font-medium text-3xl">
-                    Mitra sarana <span class="text-blue-500 font-semibold">terbaik di Indonesia</span> <br>
-                    berdiri sejak 1994. 200+ mitra
-                </div>
-                <div class="text-center mt-6">
-                    <a href="" class="bg-blue-500 text-white mx-auto px-4 py-2 rounded hover:bg-purple-500">Find Now</a>
-                </div>
+            <div class="text-center mt-6">
+                <a href="" class="bg-blue-500 text-white mx-auto px-4 py-2 rounded hover:bg-purple-500">Find Now</a>
             </div>
         </div>
-        {{-- endheader --}}
-
-        {{-- statistik --}}
-        <div class="-mt-16 z-10 container absolute">
-            <div class=" grid grid-cols-1 gap-2 place-items-center">
-                <div>
-                    <div class="bg-white p-6 rounded-lg mx-auto shadow flex">
-                        <div class="flex">
-                            <div class="mx-auto">
-                                <div><img src="{{ asset('gambar/handshake 1.svg') }}" alt="" class="h-16 w-auto">
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <div class="font-bold  text-xl">200+ Mitra</div>
-                                <div class="text-gray-600 text-xs">
-                                    Bermitra lebih dari 200+ <br>
-                                    di seluruh Indonesia
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex ml-6">
-                            <div class="mx-auto">
-                                <div><img src="{{ asset('gambar/box 1.svg') }}" alt="" class="h-16 w-auto">
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <div class="font-bold  text-xl">100+ Layanan</div>
-                                <div class="text-gray-600 text-xs">
-                                    Melayani dengan sepenuh hati <br>
-                                    di seluruh Indonesia
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex ml-6">
-                            <div class="mx-auto">
-                                <div><img src="{{ asset('gambar/document 1.svg') }}" alt="" class="h-16 w-auto">
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <div class="font-bold  text-xl">90+ Artikel</div>
-                                <div class="text-gray-600 text-xs">
-                                    Artikel seputar produk <br>
-                                    untuk info para mitra
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{-- endstatistik --}}
-        {{-- artikel --}}
-        <div class="px-20 mt-20">
-            <div class="grid grid-flow-row grid-cols-12 gap-4">
-                <div class="col-span-3">
-                    <a href="">
-                        <div class="h-full relative">
-                            <img src="{{ asset('gambar/teamcoaching.jpg') }}" alt=""
-                                class="rounded-lg h-full object-cover">
-                            <div
-                                class="absolute rounded-lg bottom-0 px-2 pb-4 pt-8 font-semibold bg-gradient-to-t from-black to-transparent bg-bottom bg-opacity-50 text-white">
-                                <div>Executive
-                                    Coaching:
-                                    Transforming
-                                    People &
-                                    Business</div>
-                                <div class="font-medium text-gray-300 text-sm">Read More ...</div>
-                            </div>
-                            <div
-                                class="absolute bg-blue-600 text-white px-2 py-1 top-0 right-0 rounded-tr-lg rounded-bl-lg">
-                                artikel populer
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-span-9">
-                    <div class="grid grid-flow-row grid-cols-12 gap-4">
-                        <div class="col-span-6 ">
-                            <a href="">
-                                <div class="relative">
-                                    <img src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                                        alt="" class="rounded-lg w-full h-44 object-cover">
-                                    <div
-                                        class="absolute bottom-0 px-2 pb-4 pt-8 font-semibold bg-gradient-to-t from-black to-transparent bg-bottom bg-opacity-50 text-white w-full rounded-lg">
-                                        <div>Executive
-                                            Coaching:
-                                            Transforming
-                                            People &
-                                            Business</div>
-                                        <div class="font-medium text-gray-300 text-sm">Read More ...</div>
-                                    </div>
-                                    <div
-                                        class="absolute bg-blue-600 text-white px-2 py-1 top-0 right-0 rounded-tr-lg rounded-bl-lg">
-                                        artikel populer
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-span-6 ">
-                            <a href="">
-                                <div class="relative">
-                                    <img src="https://images.pexels.com/photos/6325969/pexels-photo-6325969.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                                        alt="" class="rounded-lg w-full h-44 object-cover">
-                                    <div
-                                        class="absolute bottom-0 px-2 pb-4 pt-8 font-semibold bg-gradient-to-t from-black to-transparent bg-bottom bg-opacity-50 text-white w-full rounded-lg">
-                                        <div>Executive
-                                            Coaching:
-                                            Transforming
-                                            People &
-                                            Business</div>
-                                        <div class="font-medium text-gray-300 text-sm">Read More ...</div>
-                                    </div>
-                                    <div
-                                        class="absolute bg-blue-600 text-white px-2 py-1 top-0 right-0 rounded-tr-lg rounded-bl-lg">
-                                        artikel populer
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-span-6 ">
-                            <a href="">
-                                <div class="relative">
-                                    <img src="https://images.pexels.com/photos/7889239/pexels-photo-7889239.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                                        alt="" class="rounded-lg w-full h-44 object-cover">
-                                    <div
-                                        class="absolute bottom-0 px-2 pb-4 pt-8 font-semibold bg-gradient-to-t from-black to-transparent bg-bottom bg-opacity-50 text-white w-full rounded-lg">
-                                        <div>Executive
-                                            Coaching:
-                                            Transforming
-                                            People &
-                                            Business</div>
-                                        <div class="font-medium text-gray-300 text-sm">Read More ...</div>
-                                    </div>
-                                    <div
-                                        class="absolute bg-blue-600 text-white px-2 py-1 top-0 right-0 rounded-tr-lg rounded-bl-lg">
-                                        artikel populer
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-span-6 ">
-                            <a href="">
-                                <div class="relative">
-                                    <img src="https://images.pexels.com/photos/7888803/pexels-photo-7888803.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                                        alt="" class="rounded-lg w-full h-44 object-cover">
-                                    <div
-                                        class="absolute bottom-0 px-2 pb-4 pt-8 font-semibold bg-gradient-to-t from-black to-transparent bg-bottom bg-opacity-50 text-white w-full rounded-lg">
-                                        <div>Executive
-                                            Coaching:
-                                            Transforming
-                                            People &
-                                            Business</div>
-                                        <div class="font-medium text-gray-300 text-sm">Read More ...</div>
-                                    </div>
-                                    <div
-                                        class="absolute bg-blue-600 text-white px-2 py-1 top-0 right-0 rounded-tr-lg rounded-bl-lg">
-                                        artikel populer
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="font-bold text-gray-700 mt-10 text-lg">CORPORATE TRAINING PROGRAMS</div>
-            <div class="grid grid-flow-row grid-cols-12 gap-8 mt-8">
-                <div class="col-span-4">
-                    <div>
-                        <div class="relative text-center">
-                            <img src="https://images.pexels.com/photos/4339867/pexels-photo-4339867.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                alt="" class="rounded-lg h-96 w-full object-cover">
-                            <div
-                                class="absolute px-4 text-center items-center font-semibold rounded-lg text-white text-lg bottom-0 pt-10 pb-5 w-full  bg-gradient-to-t from-black to-transparent">
-                                <div class="mb-3">
-                                    Corporate Coaching Services
-                                </div>
-                                <div>
-                                    <a href="" class="bg-blue-600 px-2 py-2 rounded text-sm font-normal mt-2">Lihat
-                                        Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-4">
-                    <div>
-                        <div class="relative text-center">
-                            <img src="https://images.pexels.com/photos/3184316/pexels-photo-3184316.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                                alt="" class="rounded-lg h-96 w-full object-cover">
-                            <div
-                                class="absolute px-4 text-center items-center font-semibold rounded-lg text-white text-lg bottom-0 pt-10 pb-5 w-full  bg-gradient-to-t from-black to-transparent">
-                                <div class="mb-3">
-                                    Corporate Coaching Services
-                                </div>
-                                <div>
-                                    <a href="" class="bg-blue-600 px-2 py-2 rounded text-sm font-normal mt-2">Lihat
-                                        Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-4">
-                    <div>
-                        <div class="relative text-center">
-                            <img src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                                alt="" class="rounded-lg h-96 w-full object-cover">
-                            <div
-                                class="absolute px-4 text-center items-center font-semibold rounded-lg text-white text-lg bottom-0 pt-10 pb-5 w-full  bg-gradient-to-t from-black to-transparent">
-                                <div class="mb-3">
-                                    Corporate Coaching Services
-                                </div>
-                                <div>
-                                    <a href="" class="bg-blue-600 px-2 py-2 rounded text-sm font-normal mt-2">Lihat
-                                        Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{-- endartikel --}}
-        {{-- kontak --}}
-
-        {{-- endkontak --}}
     </div>
-    <div class="px-20 mt-10">
+    {{-- endheader --}}
+
+    {{-- statistik --}}
+    {{-- dekstop view --}}
+    <div class="-mt-16 z-10 container absolute hidden md:block">
+        <div class=" grid grid-cols-1 gap-2 place-items-center">
+            <div>
+                <div class="bg-white p-6 rounded-lg mx-auto shadow md:flex">
+                    <div class="flex">
+                        <div class="md:mx-auto">
+                            <div><img src="{{ asset('gambar/handshake 1.svg') }}" alt="" class="h-16 w-auto">
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold  text-xl">200+ Mitra</div>
+                            <div class="text-gray-600 text-xs">
+                                Bermitra lebih dari 200+ <br>
+                                di seluruh Indonesia
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex md:ml-6 mt-4 md:mt-0">
+                        <div class="mx-auto">
+                            <div><img src="{{ asset('gambar/box 1.svg') }}" alt="" class="h-16 w-auto">
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold  text-xl">100+ Layanan</div>
+                            <div class="text-gray-600 text-xs">
+                                Melayani dengan sepenuh hati <br>
+                                di seluruh Indonesia
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex md:ml-6 mt-4 md:mt-0">
+                        <div class="md:mx-auto">
+                            <div><img src="{{ asset('gambar/document 1.svg') }}" alt="" class="h-16 w-auto">
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold  text-xl">90+ Artikel</div>
+                            <div class="text-gray-600 text-xs">
+                                Artikel seputar produk <br>
+                                untuk info para mitra
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- mobile view --}}
+    <div class="md:hidden px-4 mt-4">
+        <div class="bg-white p-6 rounded-lg mx-auto shadow md:flex border">
+            <div class="flex">
+                <div class="md:mx-auto">
+                    <div><img src="{{ asset('gambar/handshake 1.svg') }}" alt="" class="h-16 w-auto">
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <div class="font-bold  text-xl">200+ Mitra</div>
+                    <div class="text-gray-600 text-xs">
+                        Bermitra lebih dari 200+ <br>
+                        di seluruh Indonesia
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg mx-auto shadow md:flex border mt-4">
+            <div class="flex md:ml-6 mt-4 md:mt-0">
+                <div class="">
+                    <div><img src="{{ asset('gambar/box 1.svg') }}" alt="" class="h-16 w-auto">
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <div class="font-bold  text-xl">100+ Layanan</div>
+                    <div class="text-gray-600 text-xs">
+                        Melayani dengan sepenuh hati <br>
+                        di seluruh Indonesia
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg mx-auto shadow md:flex border mt-4">
+            <div class="flex md:ml-6 mt-4 md:mt-0">
+                <div class="md:mx-auto">
+                    <div><img src="{{ asset('gambar/document 1.svg') }}" alt="" class="h-16 w-auto">
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <div class="font-bold  text-xl">90+ Artikel</div>
+                    <div class="text-gray-600 text-xs">
+                        Artikel seputar produk <br>
+                        untuk info para mitra
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- endstatistik --}}
+    {{-- artikel --}}
+    <div class="md:px-20 px-4 md:mt-20 mt-12">
+        <div class="grid grid-flow-row grid-cols-12 gap-4">
+            <div class="col-span-12 md:col-span-3">
+                <a href="">
+                    <div class="h-full relative">
+                        <img src="{{ asset('gambar/teamcoaching.jpg') }}" alt="" class="rounded-lg h-full object-cover">
+                        <div
+                            class="absolute rounded-lg bottom-0 px-2 pb-4 pt-8 font-semibold bg-gradient-to-t from-black to-transparent bg-bottom bg-opacity-50 text-white">
+                            <div>Executive
+                                Coaching:
+                                Transforming
+                                People &
+                                Business</div>
+                            <div class="font-medium text-gray-300 text-sm md:block hidden">Read More ...</div>
+                        </div>
+                        <div class="absolute bg-blue-600 text-white px-2 py-1 top-0 right-0 rounded-tr-lg rounded-bl-lg">
+                            artikel populer
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-span-12 md:col-span-9">
+                <div class="grid grid-flow-row grid-cols-12 gap-4">
+                    <div class="col-span-6 ">
+                        <a href="">
+                            <div class="relative">
+                                <img src="https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                                    alt="" class="rounded-lg w-full h-44 object-cover">
+                                <div
+                                    class="absolute bottom-0 px-2 pb-4 pt-8 font-semibold bg-gradient-to-t from-black to-transparent bg-bottom bg-opacity-50 text-white w-full rounded-lg md:text-base text-sm">
+                                    <div>Executive
+                                        Coaching:
+                                        Transforming
+                                        People &
+                                        Business</div>
+                                    <div class="font-medium text-gray-300 text-sm md:block hidden">Read More ...
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute bg-blue-600 text-white px-2 py-1 top-0 right-0 rounded-tr-lg rounded-bl-lg">
+                                    artikel populer
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-span-6 ">
+                        <a href="">
+                            <div class="relative">
+                                <img src="https://images.pexels.com/photos/6325969/pexels-photo-6325969.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                                    alt="" class="rounded-lg w-full h-44 object-cover">
+                                <div
+                                    class="absolute bottom-0 px-2 pb-4 pt-8 font-semibold bg-gradient-to-t from-black to-transparent bg-bottom bg-opacity-50 text-white w-full rounded-lg md:text-base text-sm">
+                                    <div>Executive
+                                        Coaching:
+                                        Transforming
+                                        People &
+                                        Business</div>
+                                    <div class="font-medium text-gray-300 text-sm md:block hidden">Read More ...
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute bg-blue-600 text-white px-2 py-1 top-0 right-0 rounded-tr-lg rounded-bl-lg">
+                                    artikel populer
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-span-6 ">
+                        <a href="">
+                            <div class="relative">
+                                <img src="https://images.pexels.com/photos/7889239/pexels-photo-7889239.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                                    alt="" class="rounded-lg w-full h-44 object-cover">
+                                <div
+                                    class="absolute bottom-0 px-2 pb-4 pt-8 font-semibold bg-gradient-to-t from-black to-transparent bg-bottom bg-opacity-50 text-white w-full rounded-lg md:text-base text-sm">
+                                    <div>Executive
+                                        Coaching:
+                                        Transforming
+                                        People &
+                                        Business</div>
+                                    <div class="font-medium text-gray-300 text-sm md:block hidden">Read More ...
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute bg-blue-600 text-white px-2 py-1 top-0 right-0 rounded-tr-lg rounded-bl-lg">
+                                    artikel populer
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-span-6 ">
+                        <a href="">
+                            <div class="relative">
+                                <img src="https://images.pexels.com/photos/7888803/pexels-photo-7888803.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                                    alt="" class="rounded-lg w-full h-44 object-cover">
+                                <div
+                                    class="absolute bottom-0 px-2 pb-4 pt-8 font-semibold bg-gradient-to-t from-black to-transparent bg-bottom bg-opacity-50 text-white w-full rounded-lg md:text-base text-sm">
+                                    <div>Executive
+                                        Coaching:
+                                        Transforming
+                                        People &
+                                        Business</div>
+                                    <div class="font-medium text-gray-300 text-sm md:block hidden">Read More ...
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute bg-blue-600 text-white px-2 py-1 top-0 right-0 rounded-tr-lg rounded-bl-lg">
+                                    artikel populer
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="font-bold text-gray-700 mt-10 text-lg">CORPORATE TRAINING PROGRAMS</div>
+        <div class="grid grid-flow-row grid-cols-12 md:gap-8 gap-4 mt-8">
+            <div class="col-span-12 md:col-span-4">
+                <div>
+                    <div class="relative text-center">
+                        <img src="https://images.pexels.com/photos/4339867/pexels-photo-4339867.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            alt="" class="rounded-lg h-96 w-full object-cover">
+                        <div
+                            class="absolute px-4 text-center items-center font-semibold rounded-lg text-white text-lg bottom-0 pt-10 pb-5 w-full  bg-gradient-to-t from-black to-transparent">
+                            <div class="mb-3">
+                                Corporate Coaching Services
+                            </div>
+                            <div>
+                                <a href="" class="bg-blue-600 px-2 py-2 rounded text-sm font-normal mt-2">Lihat
+                                    Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-12 md:col-span-4">
+                <div>
+                    <div class="relative text-center">
+                        <img src="https://images.pexels.com/photos/3184316/pexels-photo-3184316.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                            alt="" class="rounded-lg h-96 w-full object-cover">
+                        <div
+                            class="absolute px-4 text-center items-center font-semibold rounded-lg text-white text-lg bottom-0 pt-10 pb-5 w-full  bg-gradient-to-t from-black to-transparent">
+                            <div class="mb-3">
+                                Corporate Coaching Services
+                            </div>
+                            <div>
+                                <a href="" class="bg-blue-600 px-2 py-2 rounded text-sm font-normal mt-2">Lihat
+                                    Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-12 md:col-span-4">
+                <div>
+                    <div class="relative text-center">
+                        <img src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                            alt="" class="rounded-lg h-96 w-full object-cover">
+                        <div
+                            class="absolute px-4 text-center items-center font-semibold rounded-lg text-white text-lg bottom-0 pt-10 pb-5 w-full  bg-gradient-to-t from-black to-transparent">
+                            <div class="mb-3">
+                                Corporate Coaching Services
+                            </div>
+                            <div>
+                                <a href="" class="bg-blue-600 px-2 py-2 rounded text-sm font-normal mt-2">Lihat
+                                    Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- endartikel --}}
+
+
+    <div class="md:px-20 px-4 mt-10">
         <div class="grid grid-flow-row grid-cols-12 gap-6">
-            <div class="col-span-6">
+            <div class="col-span-12 md:col-span-6 hidden md:block">
                 <div class="grid grid-flow-row grid-cols-12 gap-6">
                     <div class="col-span-6 ">
-                        <div class="bg-gray-900 p-4 rounded-lg border">
+                        <div class="bg-blue-100 p-4 rounded-lg border">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -302,7 +317,7 @@
                         </div>
                     </div>
                     <div class="col-span-6 h-full">
-                        <div class="bg-gray-900 p-4 rounded-lg border h-full">
+                        <div class="bg-blue-100 p-4 rounded-lg border h-full">
                             {{-- telepon --}}
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -317,7 +332,7 @@
                         </div>
                     </div>
                     <div class="col-span-6 ">
-                        <div class="bg-gray-900 p-4 rounded-lg border">
+                        <div class="bg-blue-100 p-4 rounded-lg border">
                             {{-- email --}}
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -332,7 +347,7 @@
                         </div>
                     </div>
                     <div class="col-span-6 ">
-                        <div class="bg-gray-900 p-4 rounded-lg border">
+                        <div class="bg-blue-100 p-4 rounded-lg border">
                             {{-- jam --}}
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -348,7 +363,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-6 border p-6 bg-blue-400 rounded">
+            <div class="col-span-12 md:col-span-6  border p-6 bg-blue-400 rounded">
                 <div>
                     <input type="text" placeholder="Masukan Nama"
                         class="rounded w-full border border-gray-400 py-2 bg-gray-100">
@@ -368,36 +383,4 @@
             </div>
         </div>
     </div>
-    <div class="mt-20 px-20 py-8 border-t border">
-        <div class="flex justify-between">
-            <div class="">
-                <div class="font-bold text-2xl">DAITON <span class="text-blue-600 ">MITRA</span> SARANA</div>
-                <div class="text-gray-600">Mitra terbaik di Indonesia berdiri <br>
-                    sejak 1994. Lebih dari 200+ mitra</div>
-            </div>
-            <div class="">
-                <div class="font-bold text-lg mb-4 text-blue-600">For Beginners</div>
-                <div class="text-gray-600">Our Careers</div>
-                <div class="text-gray-600">Privacy</div>
-                <div class="text-gray-600">Terms & Conditions</div>
-            </div>
-            <div class="">
-                <div class="font-bold text-lg mb-4 text-blue-600">Connect Us</div>
-                <div class="text-gray-600">support@daitonmitrasarana.co.id</div>
-                <div class="text-gray-600">021 - 2208 - 1996</div>
-            </div>
-            <div class="">
-                <div class="font-bold text-lg mb-4 text-blue-600">Oprasional</div>
-                <div class="text-gray-600">Senin - Sabtu</div>
-                <div class="text-gray-600">08.00 - 17.00 wib</div>
-                <div class="text-gray-600">daiton mitra sarana, <br> Kemang, Jakarta</div>
-            </div>
-        </div>
-    </div>
-    <div class=" border-t text-center py-4">&copy Daiton Mitra Sarana 2021</div>
-
-
-    @livewireScripts
-</body>
-
-</html>
+@endsection
